@@ -1,3 +1,9 @@
+/*
+ This program demonstrates a simple academic management system.
+ It shows the relationship between Learner, Instructor, and Subject classes.
+ Learners can register for multiple subjects, instructors can be assigned
+ to subjects, and each subject maintains its instructor and enrolled learners.
+*/
 package ClassSequenceDiagram;
 import java.util.ArrayList;
 import java.util.Scanner;
