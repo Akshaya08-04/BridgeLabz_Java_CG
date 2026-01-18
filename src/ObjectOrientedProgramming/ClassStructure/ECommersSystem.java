@@ -1,3 +1,9 @@
+/*
+ This program demonstrates an E-Commerce system using multiple classes.
+ It shows the relationship between Customer, Order, and Product classes.
+ A customer can place multiple orders, each order can have multiple products,
+ and the system calculates and displays order details and total amount.
+*/
 package ClassSequenceDiagram;
 import java.util.ArrayList;
 import java.util.Scanner;
