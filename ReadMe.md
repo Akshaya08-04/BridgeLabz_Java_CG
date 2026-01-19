@@ -45,3 +45,7 @@ README File
 • 15-Jan-2026 (Thursday): Completed Methods and String programs and extras. Learned Git and Git Flow process, branch creation, publishing, and daily workflow management. Reorder Git Repo using Git Flow.
 
 • 16-Jan-2026 (Friday): Started with object oriented programming concepts
+
+.17-Jan-2026(Saturaday):Completed and learnt class & object,java constructors,Non access modifiers
+
+.18-Jan-2026(Sunday):Practised and completed class structure,encapsulation,Inheritance 
