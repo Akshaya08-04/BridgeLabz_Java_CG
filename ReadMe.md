@@ -50,3 +50,6 @@ README File
 
 .19-Jan-2026(Monday):Practised and completed class structure,encapsulation,Inheritance 
 
+.20-Jan-2026(Tuesday):Started learning basics and introduction od data structures
+
+
