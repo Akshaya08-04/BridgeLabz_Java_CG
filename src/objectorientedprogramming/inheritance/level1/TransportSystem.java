@@ -1,0 +1,132 @@
+package objectorientedprogramming.inheritance.level1;
+/*
+This program demonstrates inheritance and method overriding using a vehicle hierarchy.
+It allows the user to:
+1. Enter multiple vehicles and choose their type: Car, Truck, or Motorcycle.
+2. Input details specific to each vehicle type, such as max speed, fuel type, and role-specific attributes (seat capacity, load capacity, engine capacity).
+3. Display complete details for all entered vehicles.
+
+The base class Vehicle stores common properties and a method to display them.
+Car, Truck, and Motorcycle extend Vehicle and override displayInfo() to include type-specific information.
+Polymorphism is used to call the appropriate displayInfo() method for each vehicle dynamically.
+*/
+
+import java.util.Scanner;
+// Created a vehicle class
+class Vehicle {
+    int maxSpeed;
+    String fuelType;
+
+    Vehicle(int maxSpeed, String fuelType) {
+        this.maxSpeed = maxSpeed;
+        this.fuelType = fuelType;
+    }
+    // Method to display detials
+    void displayInfo() {
+        System.out.println("Max Speed : " + maxSpeed + " km/h");
+        System.out.println("Fuel Type : " + fuelType);
+    }
+}
+// Extended car class
+class Car extends Vehicle {
+    int seatCapacity;
+
+    Car(int maxSpeed, String fuelType, int seatCapacity) {
+        super(maxSpeed, fuelType);
+        this.seatCapacity = seatCapacity;
+    }
+    void displayInfo() {
+        System.out.println("\nVehicle Type: Car");
+        super.displayInfo();
+        System.out.println("Seat Capacity : " + seatCapacity);
+    }
+}
+// Extended truck class
+class Truck extends Vehicle {
+    double loadCapacity;
+
+    Truck(int maxSpeed, String fuelType, double loadCapacity) {
+        super(maxSpeed, fuelType);
+        this.loadCapacity = loadCapacity;
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("\nVehicle Type: Truck");
+        super.displayInfo();
+        System.out.println("Load Capacity : " + loadCapacity + " tons");
+    }
+}
+// Extended motorcycle class
+class Motorcycle extends Vehicle {
+    int engineCapacity;
+
+    Motorcycle(int maxSpeed, String fuelType, int engineCapacity) {
+        super(maxSpeed, fuelType);
+        this.engineCapacity = engineCapacity;
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("\nVehicle Type: Motorcycle");
+        super.displayInfo();
+        System.out.println("Engine Capacity : " + engineCapacity + " cc");
+    }
+}
+// Created a main class called transport system
+public class TransportSystem {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of vehicles: ");
+        int n = sc.nextInt();
+
+        Vehicle[] vehicles = new Vehicle[n];
+        // Looping to get information
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nSelect Vehicle Type:");
+            System.out.println("1. Car");
+            System.out.println("2. Truck");
+            System.out.println("3. Motorcycle");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+
+            System.out.print("Enter Max Speed: ");
+            int speed = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Enter Fuel Type: ");
+            String fuel = sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Seat Capacity: ");
+                    int seats = sc.nextInt();
+                    vehicles[i] = new Car(speed, fuel, seats);
+                    break;
+
+                case 2:
+                    System.out.print("Enter Load Capacity (tons): ");
+                    double load = sc.nextDouble();
+                    vehicles[i] = new Truck(speed, fuel, load);
+                    break;
+
+                case 3:
+                    System.out.print("Enter Engine Capacity (cc): ");
+                    int cc = sc.nextInt();
+                    vehicles[i] = new Motorcycle(speed, fuel, cc);
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+                    i--;
+            }
+        }
+        // Calling method
+        System.out.println("\n--- Vehicle Details ---");
+        for (Vehicle v : vehicles) {
+            v.displayInfo();
+        }
+    }
+}
